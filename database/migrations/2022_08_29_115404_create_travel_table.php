@@ -18,8 +18,8 @@ class CreateTravelTable extends Migration
             $table->string('destinazione', 50);
             $table->string('trasporto', 20);
             $table->string('tipo_di_alloggio', 20);
-            $table->text('descrione_alloggio')->nullable();
-            $table->date('data-partenza');
+            $table->text('descrizione_alloggio')->nullable();
+            $table->date('data_partenza');
             $table->date('data_rientro');
             $table->timestamps();
         });

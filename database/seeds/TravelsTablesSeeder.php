@@ -1,10 +1,9 @@
 <?php
 
 use Illuminate\Database\Seeder;
-
+use Faker\Generator as Faker;
 use App\Travel;
 
-use Faker\Generator as Faker;
 
 class TravelsTablesSeeder extends Seeder
 {
@@ -13,7 +12,7 @@ class TravelsTablesSeeder extends Seeder
      *
      * @return void
      */
-    public function run()
+    public function run(Faker $faker)
     {
         //
         $trip_types = [
@@ -29,14 +28,14 @@ class TravelsTablesSeeder extends Seeder
         ];
 
 
-        for($i = 1; $i >= 3; $i++){
+        for($i = 1; $i <= 3; $i++){
 
             $new_travel = new Travel();
 
             $new_travel->destinazione = $faker->country();
             $new_travel->trasporto = $faker->randomElement($trip_types);
             $new_travel->tipo_di_alloggio = $faker->randomElement( $type_of_accommodation);
-            $new_travel->descrione_alloggio = $faker->paragraphs(7, true);
+            $new_travel->descrizione_alloggio = $faker->paragraphs(7, true);
             $new_travel->data_partenza = $faker->dateTimeThisYear();
             $new_travel->data_rientro = $faker->dateTimeThisYear();
             $new_travel->save();
